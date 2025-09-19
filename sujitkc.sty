@@ -1,7 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{sujitkc}[2024/11/22 Sujit's package]
 
-\RequirePackage{amsmath}
 \RequirePackage{xcolor, colortbl}
 \RequirePackage{algorithm}
 \RequirePackage[noend]{algpseudocode}
@@ -23,9 +22,18 @@
 \RequirePackage{multicol}
 \RequirePackage{framed}
 \RequirePackage[framemethod=TikZ]{mdframed}
-\usetikzlibrary{positioning,shapes,arrows,backgrounds,fit, calc, shadows}
-\usetikzlibrary{decorations.markings, graphs}
+\usetikzlibrary{positioning,shapes,arrows, arrows.meta, backgrounds,fit, calc, shadows}
+%\usetikzlibrary{decorations.markings, graphs}
+\usetikzlibrary{graphs, decorations.pathmorphing, decorations.markings, automata}
 
+\definecolor{lightblue}{rgb}{0.8,0.93,1.0} % color values Red, Green, Blue
+\definecolor{darkblue}{rgb}{0.4,0.3,1.0} % color values Red, Green, Blue
+\definecolor{Blue}{rgb}{0,0,1.0} % color values Red, Green, Blue
+\definecolor{darkgreen}{rgb}{0,0.7,0.2} % color values Red, Green, Blue
+\definecolor{Red}{rgb}{1,0,0} % color values Red, Green, Blue
+\definecolor{Pink}{rgb}{0.7,0,0.2}
+\definecolor{links}{HTML}{2A1B81}
+\definecolor{mydarkgreen}{HTML}{126215}
 \newcommand{\highlight}[1]{{\color{Red}(#1)}}
 
 \newcommand{\myheader}[1]{
@@ -37,7 +45,6 @@
 		\end{Large}
 	}
 }
-
 \newcommand{\myminorheader}[1]{
 	{\color{BrickRed}
 		\begin{Large}
@@ -46,23 +53,10 @@
 	}
 }
 
-\newcommand{\skccomment}[1]{
-	{
-		\color{Red}{[#1]}
-	}
+\newcommand{\kceos}[0]{\pause
+\flushright{\tikz{\path[draw=Red,fill=Red] (0,0) rectangle(0.5cm, 0.5cm);}}
 }
 
-\newcommand{\mysquare}[0]{\tikz\draw (0,0)--(0,0.4) -- (0.4,0.4)-- (0.4,0) -- (0,0);}
-
-
-\newcommand{\crossedsquare}[0]{
-	\begin{tikzpicture}
-		\draw (0,0)--(0,0.4) -- (0.4,0.4)-- (0.4,0) -- (0,0); \draw[thick] (0,0) -- (0.4,0.4); \draw[thick] (0,0.4) -- (0.4,0); \end{tikzpicture}}
-		
-\newcommand{\kceos}[0]{\pause
-	\flushright{\tikz{\path[draw=Red,fill=Red] (0,0) rectangle(0.5cm, 0.5cm);}}
- }
- 
 \tikzstyle{bb}=[%
       rectangle, draw=black, thick, fill=lightblue, drop shadow, align=center,
       text ragged, minimum height=2em, minimum width=2em, inner sep=6pt
@@ -108,7 +102,7 @@
 
 \lstdefinestyle{pc}{
 	language = Python,
-	basicstyle = \ttfamily\small,
+	basicstyle = \ttfamily\scriptsize,
 	stringstyle = \ttfamily\color{Purple},
 	keywordstyle=\color{black}\bfseries,
 	identifierstyle=\ttfamily\color{BrickRed},
@@ -117,13 +111,12 @@
 	frame=single,
 	numbers=none,
 	showstringspaces=false,
-	mathescape=true,
 	escapeinside={(*@}{@*)}
 }
 
 \lstdefinestyle{jc}{
 	language = Java,
-	basicstyle = \small\ttfamily,
+	basicstyle = \scriptsize\ttfamily,
 	stringstyle = \ttfamily,
 	keywordstyle=\color{Blue}\bfseries,
 	identifierstyle=\color{Pink},
