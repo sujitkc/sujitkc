@@ -22,7 +22,7 @@
 \RequirePackage{multicol}
 \RequirePackage{framed}
 \RequirePackage[framemethod=TikZ]{mdframed}
-\usetikzlibrary{positioning,shapes,arrows,backgrounds,fit, calc, shadows}
+\usetikzlibrary{positioning, shapes, arrows, arrows.meta, backgrounds, fit, calc, shadows}
 %\usetikzlibrary{decorations.markings, graphs}
 \usetikzlibrary{graphs, decorations.pathmorphing, decorations.markings, automata}
 
@@ -57,58 +57,25 @@
 \flushright{\tikz{\path[draw=Red,fill=Red] (0,0) rectangle(0.5cm, 0.5cm);}}
 }
 
-\tikzstyle{bb}=[%
-      rectangle, draw=black, thick, fill=lightblue, drop shadow, align=center,
-      text ragged, minimum height=2em, minimum width=2em, inner sep=6pt
-]
+\tikzset{obj/.style = {rectangle split, rounded corners,
+                      rectangle split parts=2, very thick,draw=black!50, top
+                      color=white,bottom color=black!20, align=center}}
 
-\tikzstyle{inv}=[%
-      rectangle, draw=none,  align=center,
-      text ragged, minimum height=2em, minimum width=2em, inner sep=6pt
-]
+\tikzset{cobj/.style = {rectangle split,
+                      rectangle split parts=3, very thick,draw=black!50, top
+                      color=white,bottom color=black!10, align=left}}
 
-\tikzstyle{db}=[%
-      ellipse, draw=black, thick, fill=pink, drop shadow, align=center,
-      text ragged, minimum height=2em, inner sep=6pt
-]
-
-\tikzstyle{jn}=[%
-      ellipse, draw=black, thick, fill=black
-]
-
-\tikzstyle{io}=[%
-      trapezium, trapezium left angle=60, trapezium right angle=120, draw=black, thick, fill=brown, drop shadow,
-      text ragged, minimum height=2em, minimum width=2em, inner sep=6pt, align=center
-]
-
-\tikzstyle{glio}=[%
-      trapezium, trapezium left angle=60, trapezium right angle=120, draw=red, line width = 1mm, fill=brown, drop shadow,
-      text ragged, minimum height=2em, minimum width=2em, inner sep=6pt
-]
-\tikzstyle{gl}=[%
-      rectangle, draw=red, line width = 1mm, fill=lightblue, drop shadow,
-      text ragged, minimum height=2em, minimum width=2em, inner sep=6pt
-]
-
-\tikzstyle{en}=[%
-      rectangle, draw=black, thick, fill=none,
-      text ragged, minimum height=2em, minimum width=2em, inner sep=6pt
-]
-
-\tikzstyle{sh}=[%
-      rectangle, draw=gray, thick, fill=none, color = gray,
-      text ragged, minimum height=2em, minimum width=2em, inner sep=6pt
-]
 \lstdefinestyle{gc}{
-	language = Java,
-	basicstyle = \ttfamily,
+	language = C++,
+	basicstyle = \ttfamily\scriptsize,
 	stringstyle = \ttfamily,
-	keywordstyle=\color{Blue}\bfseries,
-	identifierstyle=\color{Pink},
+	keywordstyle=\color{Peach}\bfseries,
+	identifierstyle=\color{Brown},
 	commentstyle=\color{OliveGreen},
 	frame=single,
 	frameround=tttt,
 	showstringspaces=false,
+	mathescape=true,
 	escapeinside={(*@}{@*)}
 }
 
@@ -168,3 +135,20 @@
 	mathescape=true,
 	escapeinside={(*@}{@*)}
 }
+
+\newcommand{\kcquestion}[3]{
+\question[#2]
+	  \label{#1} 
+	\textbf{QUESTION LABEL:} \emph{\color{Red}#3}
+
+}
+\newcommand{\grade}[1]{{\color{red}\textbf{Grading Scheme:} #1}}
+\newcommand{\kcblank}[0]{{\underline{\hspace{2cm}}}}
+\newcommand{\kctodo}[0]{
+	\begin{center}
+	\begin{tikzpicture}
+	\node[rectangle, draw=Black, fill=Gray, text width=5cm, text height=5cm, minimum height=15, minimum width=15]{\color{Red} \Large TO DO};
+	\end{tikzpicture}
+	\end{center}
+}
+
