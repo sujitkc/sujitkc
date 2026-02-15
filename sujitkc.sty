@@ -53,6 +53,20 @@
 	}
 }
 
+\newcommand{\kcbox}[2]{
+	\vspace{1cm}
+	\begin{minipage}{\textwidth}
+		\begin{mdframed}[backgroundcolor=OliveGreen!20] 
+			\begin{center}
+				\underline{\textsc{\color{Brown}#1}}
+			\end{center}
+		
+			{#2}
+
+	    \end{mdframed}
+	\end{minipage}
+}
+
 \newcommand{\kceos}[0]{\pause
 \flushright{\tikz{\path[draw=Red,fill=Red] (0,0) rectangle(0.5cm, 0.5cm);}}
 }
@@ -65,11 +79,15 @@
                       rectangle split parts=3, very thick,draw=black!50, top
                       color=white,bottom color=black!10, align=left}}
 
+%\tikzset{comp/.style = thick, BrickRed, arrows = {-Turned Square[scale=2 ]}}
+%\tikzset{agg/.style = thick, BrickRed, arrows = {-Turned Square[open, scale=2 ]}}
+%\tikzset{inh/.style = BrickRed, thick, arrows = {-Stealth[inset=0pt, length=10pt, angle'=60]}}
+
 \lstdefinestyle{gc}{
 	language = C++,
 	basicstyle = \ttfamily\scriptsize,
 	stringstyle = \ttfamily,
-	keywordstyle=\color{Peach}\bfseries,
+	keywordstyle=\color{OliveGreen}\bfseries,
 	identifierstyle=\color{Brown},
 	commentstyle=\color{OliveGreen},
 	frame=single,
@@ -151,4 +169,6 @@
 	\end{tikzpicture}
 	\end{center}
 }
+\newcommand{\correct}{{\color{Green}\checkmark}}
+\newcommand{\wrong}{{\color{Red}$\times$}}
 
